@@ -1,0 +1,20 @@
+{
+  "template": "https://github.com/PrefectHQ/prefect-collection-template",
+  "commit": "eea057f609b4c06ec802967ae8982880845cef6f",
+  "checkout": null,
+  "context": {
+    "cookiecutter": {
+      "full_name": "Nick Acosta",
+      "email": "nick.acosta1@gmail.com",
+      "github_organization": "pubchimps",
+      "collection_name": "prefect-writer",
+      "collection_slug": "prefect_writer",
+      "collection_short_description": "Prefect integrations with Writer",
+      "_copy_without_render": [
+        ".github/workflows/*.yml"
+      ],
+      "_template": "https://github.com/PrefectHQ/prefect-collection-template"
+    }
+  },
+  "directory": null
+}
