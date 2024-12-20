@@ -1,4 +1,6 @@
 from . import _version
-from .blocks import WriterBlock  # noqa
+from .credentials import WriterCredentials
 
 __version__ = _version.get_versions()["version"]
+
+__all__ = ["WriterCredentials"]
