@@ -33,25 +33,30 @@ async def prompt_writer_model(
 
     Examples:
         Prompt a Writer model in Prefect
-        ```python
-        from prefect import flow
-        from prefect_writer.credentials import WriterCredentials
-        from prefect_writer.writer import prompt_writer_model
+    ```python
+    import asyncio
 
-        @flow
-        async def example_flow():
-            writer_credentials = WriterCredentials(
-                    api_key="my_api_key",
-            )
-            return await prompt_writer_model(
-                model_name="palmyra-x-004",
-                prompt_content="Write a poem about Python",
-                prompt_role="user",
-                writer_credentials=writer_credentials,
-            ).choices[0].message.content
+    from prefect import flow
+    from prefect_writer.credentials import WriterCredentials
+    from prefect_writer.writer import prompt_writer_model
 
-        asyncio.run(example_flow())
-        ```
+    @flow
+    async def example_flow():
+        writer_credentials = WriterCredentials(
+            api_key="my-api-key",
+        )
+        result = await prompt_writer_model(
+            model_name="palmyra-x-004",
+            prompt_content="Write a poem about Python",
+            prompt_role="user",
+            writer_credentials=writer_credentials,
+        )
+
+        print(result)
+        return result
+
+    asyncio.run(example_flow())
+    ```
     """
     if not prompt_content:
         raise ValueError("A prompt must be provided to send to Writer.")
